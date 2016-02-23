@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app="myMod">
+<head>
+    <!-- Assignment – Make a controller with scope and print “Hello World”. -->
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://localhost:56130/angular.min.js"></script>
+
+    <script type="text/javascript">
+        var myMod = new angular.module('myMod', []);
+
+        myMod.controller('mycontroller', function ($scope) {
+            $scope.message = "Hello World";
+            $scope.print = function (messageToPrint) {
+                alert("Print This: " + messageToPrint);
+            };
+            $scope.click = function (msg) {
+                alert('You clicked me with message: ' + msg);
+            };
+        });
+    </script>
+</head>
+<body ng-app="myMod">
+    <div ng-controller="mycontroller">
+        The message is {{message}}<br />
+        <button ng-click="print('Hello World')">Print</button><br />
+        <button ng-click="click('Hello World Again')">Click</button><br />
+    </div>
+</body>
+</html>
